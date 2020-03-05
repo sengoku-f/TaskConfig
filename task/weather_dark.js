@@ -3,10 +3,10 @@
 https://github.com/sazs34/TaskConfig#%E5%A4%A9%E6%B0%94
  */
 let config = {
-    darksky_api: "填这里", //从https://darksky.net/dev/ 上申请key填入即可
-    aqicn_api: "填这里", //从http://aqicn.org/data-platform/token/#/ 上申请key填入即可
-    huweather_apiKey: "faead3de5f42420098c8132b3924cd09", //和风天气APIkey,可自行前往 https://dev.heweather.com/ 进行获取(注意key类型选WebApi)
-    lat_lon: "填这里", //请填写经纬度,直接从谷歌地图中获取即可
+    darksky_api: "8140584ca61bd66a3a5fc5adce18cadc", //从https://darksky.net/dev/ 上申请key填入即可
+    aqicn_api: "cb29e25829fe8bbd1db28308019698a20573de6f", //从http://aqicn.org/data-platform/token/#/ 上申请key填入即可
+    huweather_apiKey: "21c04c8f382f4c97a21ea863a769f6b1", //和风天气APIkey,可自行前往 https://dev.heweather.com/ 进行获取(注意key类型选WebApi)
+    lat_lon: "22.269159,113.553042", //请填写经纬度,直接从谷歌地图中获取即可
     lang: "zh", //语言,请不要修改
     show: {
         log: 0, //调试日志,0为不开启,1为开启,2为开启精简日志
@@ -28,7 +28,7 @@ let config = {
             gl: false, //太阳镜指数,
             mu: false, //化妆指数,
             airc: false, //晾晒指数,
-            ptfc: false, //交通指数,
+            ptfc: true, //交通指数,
             fsh: false, //钓鱼指数,
             spi: false, //防晒指数
         }
@@ -193,22 +193,22 @@ function getAqiInfo(aqi) {
     var aqiDesc = "";
     var aqiWarning = "";
     if (aqi > 300) {
-        aqiDesc = `${config.show.icon?'🟤':''}严重污染`;
+        aqiDesc = `${config.show.icon?'🖤':''}严重污染`;
         aqiWarning = "儿童、老人、呼吸系统等疾病患者及一般人群停止户外活动";
     } else if (aqi > 200) {
-        aqiDesc = `${config.show.icon?'🟣':''}重度污染`;
+        aqiDesc = `${config.show.icon?'💜':''}重度污染`;
         aqiWarning = "儿童、老人、呼吸系统等疾病患者及一般人群停止或减少户外运动";
     } else if (aqi > 150) {
-        aqiDesc = `${config.show.icon?'🔴':''}中度污染`;
+        aqiDesc = `${config.show.icon?'❤️':''}中度污染`;
         aqiWarning = "儿童、老人、呼吸系统等疾病患者及一般人群减少户外活动";
     } else if (aqi > 100) {
-        aqiDesc = `${config.show.icon?'🟠':''}轻度污染`;
+        aqiDesc = `${config.show.icon?'🧡':''}轻度污染`;
         aqiWarning = "老人、儿童、呼吸系统等疾病患者减少长时间、高强度的户外活动";
     } else if (aqi > 50) {
-        aqiDesc = `${config.show.icon?'🟡':''}良好`;
+        aqiDesc = `${config.show.icon?'💛':''}良好`;
         aqiWarning = "极少数敏感人群应减少户外活动";
     } else {
-        aqiDesc = `${config.show.icon?'🟢':''}优`;
+        aqiDesc = `${config.show.icon?'💚':''}优`;
     }
     return {
         aqi,
